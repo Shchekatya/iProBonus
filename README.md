@@ -1,6 +1,6 @@
 Компонент для получения бонусов пользователя платформы iProBonus
 
-![screenshot]()
+![screenshot](https://github.com/Shchekatya/iProBonus/blob/main/screenshots/Screenshot_36.jpg)
 
 Чтобы запустить:
 
