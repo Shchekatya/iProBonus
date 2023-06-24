@@ -22,14 +22,16 @@ dd {
 }
 
 .header {
-  max-width: 375px;
-  margin: 5px;
   display: flex;
   justify-content: space-between;
   align-items: center;
   .figma, .battery {
+    margin: 5px;
     display: flex;
     align-items: center;
+    &__text {
+      margin: 0 2px;
+    }
   }
 }
 .main {
@@ -116,3 +118,19 @@ dd {
   } 
 }
 
+@media (max-width: 375px) { 
+  .App {
+    width: 100%;
+}
+.header {
+  width: 100%;
+}
+.bonus {
+  width: 250px;
+  left: calc(50% - 145px);
+}
+.background {
+  width: 100%;
+}
+
+}
