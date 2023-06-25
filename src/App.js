@@ -10,12 +10,12 @@ import { useEffect, useState } from 'react';
 
 
 function App() { 
+  const [bonus, setBonus]=useState({});
   useEffect(() => {
     getToken()
     getBonus(setBonus)
-  }, []);
-  const [bonus, setBonus]=useState({})
-  let date
+  }, []);  
+  let date;
   if (bonus.dateBurning) {
     date=bonus.dateBurning.split("T")[0].split("-")    
   }
