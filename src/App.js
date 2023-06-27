@@ -4,19 +4,17 @@ import battery from './pics/battery.svg';
 import button from './pics/button.svg';
 import infButton from './pics/inf-button.svg';
 import './App.scss';
-import { getToken } from './get-tocken';
-import { getBonus } from './get-bonus';
 import { useEffect, useState } from 'react';
+import { useAccessToken } from './utils/useAccessToken';
+import { useBonus } from './utils/useBonus';
 
 
 function App() { 
-  const [bonus, setBonus]=useState({});
-  useEffect(() => {
-    getToken()
-    getBonus(setBonus)
-  }, []);  
+  const token = useAccessToken();
+  const bonus = useBonus(token);
+
   let date;
-  if (bonus.dateBurning) {
+  if (bonus) {
     date=bonus.dateBurning.split("T")[0].split("-")    
   }
 
@@ -43,7 +41,7 @@ function App() {
       <div className = "background" ></div>  
      
         <div className = "bonus" >
-        {bonus.currentQuantity &&
+        {bonus &&
         <>
         <div className='bonus-info'>
           <p className='bonus-info__text'>
@@ -62,10 +60,9 @@ function App() {
         <button className='bonus-button'><img src={button}/></button>
         </>
       }
-       {!bonus.currentQuantity && <p className='bonus-info__text'>Нет данных</p>}
-      </div>
+       {!bonus && <p className='bonus-info__text'>Нет данных</p>}
+      </div>    
     
-      
     </main>
     </div>
   );
